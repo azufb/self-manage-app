@@ -10,7 +10,7 @@ export default function App() {
   useEffect(() => {
     const searchUsers = async() => {
       // Firestoreのコレクションを指定してデータ取得。今回は全量を検索
-      const res = await fireStore.collection('users').get();
+      const res = await firebaseStore.collection('users').get();
       if (res.empty) return [];
       const userList　= [];
       // DocumentData型にはmapメソッドが定義されていないため、forEachのループでデータを加工

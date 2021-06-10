@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import firebase from "firebase";
+const env = process.env;
 
 export const firebaseApp = firebase.initializeApp(firebaseConfig);
 

@@ -19,6 +19,8 @@ export const firebaseConfig = {
 
 export const firebaseApp = firebase.initializeApp(firebaseConfig);
 
+export const firebaseStore = firebaseApp.firestore();
+
 export default firebase;
 
 ReactDOM.render(

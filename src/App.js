@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import firebase from 'firebase';
 import {firebaseStore} from './index'
+import * as admin from 'firebase-admin';
 
 export default function App() {
   const [loading, setLoading] = useState(true);

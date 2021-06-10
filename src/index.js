@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import firebase from "firebase";
+import * as admin from 'firebase-admin';
 const env = process.env;
 
 export const firebaseConfig = {
@@ -16,6 +17,11 @@ export const firebaseConfig = {
   appId: env.REACT_APP_APP_ID,
   //measurementId: env.REACT_APP_MEASUREMENT_ID,
 };
+
+admin.initializeApp({
+  credential: admin.credential.applicationDefault(),
+  databaseURL: 'https://self-manage-app.firebaseio.com'
+});
 
 export const firebaseApp = firebase.initializeApp(firebaseConfig);
 

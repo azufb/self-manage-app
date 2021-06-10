@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import firebase from "firebase";
-import * as admin from 'firebase-admin';
 const env = process.env;
 
 export const firebaseConfig = {
@@ -18,10 +17,9 @@ export const firebaseConfig = {
   //measurementId: env.REACT_APP_MEASUREMENT_ID,
 };
 
-
 export const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-export const firebaseStore = firebaseApp.firestore();
+//export const firebaseStore = firebaseApp.firestore();
 
 export default firebase;
 

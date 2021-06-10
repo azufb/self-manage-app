@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import firebase from 'firebase';
-import {fireStore} from './index'
+import {firebaseStore} from './index'
 
 export default function App() {
   const [loading, setLoading] = useState(true);

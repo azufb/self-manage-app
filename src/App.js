@@ -6,6 +6,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Home from "./components/Home";
+import EventManage from './components/EventManage';
 
 export default function App() {
 
@@ -27,7 +29,7 @@ export default function App() {
         </div>
         <Switch>
           <Route path="/Event">
-            <Event />
+            <EventManage />
           </Route>
           <Route path="/">
             <Home />

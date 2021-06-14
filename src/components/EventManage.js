@@ -1,8 +1,14 @@
 import React from "react";
+import EventForm from "./EventForm";
+import EventList from "./EventList";
 
 const EventManage = () => {
   return (
-    <div>イベントページ</div>
+    <div>
+      <p>参加したイベントを管理できるページです。</p>
+      <EventForm />
+      <EventList />
+    </div>
   )
 }
 

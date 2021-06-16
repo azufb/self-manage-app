@@ -17,7 +17,8 @@ const Event = ({event}) => {
   return (
     <tr>
       <td>{event.id}</td>
-      <td>{event.title}</td>
+      <td>{event.name}</td>
+      <td>{event.comment}</td>
       <td>
         <button type="button" onClick={handleDeleteEvent}>削除</button>
       </td>

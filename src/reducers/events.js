@@ -6,7 +6,7 @@ const events = (state = [], action) => {
     case ADD_EVENT:
       const event = { name: action.name, comment: action.comment };
       const length = state.length;
-      const id  = length === 0 ? 0 : state[length -1].id + 1;
+      const id  = length === 0 ? 1 : state[length -1].id + 1;
       return [...state, { id, ...event }];
 
     // イベントを削除する

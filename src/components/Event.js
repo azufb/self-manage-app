@@ -1,12 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { DELETE_EVENT, EDIT_EVENT } from "../actions";
 import AppContext from "../contexts/AppContext";
 
 const Event = ({event}) => {
   const {dispatch} = useContext(AppContext);
+  const id = event.id;
   const [name, setName] = useState(event.name);
   const [comment, setComment] = useState(event.comment);
-  const id = event.id;
   const [editable, setEditable] = useState(false);
 
   const handleDeleteEvent = () => {
@@ -16,9 +16,14 @@ const Event = ({event}) => {
     });
   }
 
+  useEffect(() => {
+    setName(event.name);
+    setComment(event.comment);
+  }, [event.name, event.comment]);
+
   // editableがtrueであれば、inputエリアを表示。
   const handleEditable = () => {
-    setEditable(true);
+    setEditable(!editable);
   }
 
   const handleEditEvent = () => {
@@ -28,7 +33,9 @@ const Event = ({event}) => {
       name,
       comment
     });
-    setEditable(false);
+
+    setName(event.name);
+    setComment(event.comment);
   }
 
   return (
@@ -41,6 +48,9 @@ const Event = ({event}) => {
           <td><input value={comment} onChange={(e) => setComment(e.target.value)} /></td>
           <td>
             <button type="button" onClick={handleEditEvent}>保存</button>
+          </td>
+          <td>
+          <button type="button" onClick={handleEditable}>閉じる</button>
           </td>
         </tr>
       ):(

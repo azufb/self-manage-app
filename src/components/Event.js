@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { DELETE_EVENT, EDIT_EVENT } from "../actions";
 import AppContext from "../contexts/AppContext";
 
+const JSON_KEYWORD = "events";
+
 const Event = ({event}) => {
-  const {dispatch} = useContext(AppContext);
+  const {state, dispatch} = useContext(AppContext);
   const id = event.id;
   const [name, setName] = useState(event.name);
   const [comment, setComment] = useState(event.comment);
@@ -36,6 +38,8 @@ const Event = ({event}) => {
 
     setName(event.name);
     setComment(event.comment);
+
+    localStorage.setItem(JSON_KEYWORD, JSON.stringify(state));
   }
 
   return (

@@ -1,0 +1,27 @@
+.total {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #000;
+}
+
+.sideNavi {
+  display: flex;
+  height: 100%;
+}
+
+.navi {
+  padding: 15px;
+  border: 1px solid #000;
+}
+
+.navi:nth-child(n + 2) {
+  border-top: none;
+}

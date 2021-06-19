@@ -14,7 +14,7 @@ const Navi = () => {
     <div className={styles.total}>
     <Router>
       <div className={styles.sideNavi}>
-        <div>
+        <div className={styles.side}>
           <div className={styles.navi}>
             <Link to="/">Self-Manage</Link>
           </div>

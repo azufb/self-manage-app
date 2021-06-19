@@ -1,5 +1,10 @@
 .total {
-  height: 100%;
+  height: 100vh;
+  width: 100%;
+}
+
+.side {
+  border-right: 1px solid #000;
 }
 
 a {
@@ -19,9 +24,5 @@ a:visited {
 
 .navi {
   padding: 15px;
-  border: 1px solid #000;
-}
-
-.navi:nth-child(n + 2) {
-  border-top: none;
+  border-bottom: 1px solid #000;
 }

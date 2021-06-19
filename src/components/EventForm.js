@@ -18,9 +18,14 @@ const EventForm = () => {
       comment
     });
 
+    window.alert(`「${name}」というイベントを登録しました。`);
+
     setName("");
     setComment("");
   }
+
+  const disableResister = name === "" || comment === "";
+
   return (
     <div className={styles.contents}>
       <form>
@@ -40,7 +45,7 @@ const EventForm = () => {
         <br />
         <div className={styles.btnArea}>
           <Button onClick={handleAddEvent} variant="contained" size="medium" color="primary"
-            fontWeight="fontWeightBold" className={styles.registerBtn}>
+            fontWeight="fontWeightBold" className={styles.registerBtn} disabled={disableResister}>
             登録
           </Button>
         </div>

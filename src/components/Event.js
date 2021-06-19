@@ -12,10 +12,15 @@ const Event = ({event}) => {
   const [editable, setEditable] = useState(false);
 
   const handleDeleteEvent = () => {
-    dispatch({
-      type: DELETE_EVENT,
-      id
-    });
+    const confirmMessage = window.confirm("イベントを削除してもよいですか？");
+    if (confirmMessage) {
+      dispatch({
+        type: DELETE_EVENT,
+        id
+      });
+
+      window.alert("イベントを削除しました。");
+    }
   }
 
   useEffect(() => {
@@ -39,6 +44,8 @@ const Event = ({event}) => {
     setName(event.name);
     setComment(event.comment);
 
+    window.alert("変更が適用されました。");
+
     localStorage.setItem(JSON_KEYWORD, JSON.stringify(state));
   }
 
@@ -51,7 +58,7 @@ const Event = ({event}) => {
           <td><input value={name} onChange={(e) => setName(e.target.value)} /></td>
           <td><input value={comment} onChange={(e) => setComment(e.target.value)} /></td>
           <td>
-            <button type="button" onClick={handleEditEvent}>保存</button>
+            <button type="button" onClick={handleEditEvent}>適用</button>
           </td>
           <td>
           <button type="button" onClick={handleEditable}>閉じる</button>

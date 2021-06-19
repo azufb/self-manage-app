@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer } from 'react';
-import './App.css';
+//import './App.css';
 import Navi from "./components/Navi";
 import reducer from "./reducers";
 import AppContext from './contexts/AppContext';

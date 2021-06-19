@@ -7,32 +7,35 @@ import {
 } from "react-router-dom";
 import Home from "./Home";
 import EventManage from "./EventManage";
+import styles from "../styles/Navi.css";
 
 const Navi = () => {
   return (
+    <div className={styles.total}>
     <Router>
-      <div>
-        <h1>
-          <Link to="/">Self-Manage</Link>
-        </h1>
-        <ul>
-          <li>
+      <div className={styles.sideNavi}>
+        <div>
+          <div className={styles.navi}>
+            <Link to="/">Self-Manage</Link>
+          </div>
+          {/*<div className={styles.navi}>
             <Link to="/">HOME</Link>
-          </li>
-          <li>
-            <Link to="/Event">Event</Link>
-          </li>
-        </ul>
+          </div>*/}
+          <div className={styles.navi}>
+            <Link to="/Events">Events</Link>
+          </div>
+        </div>
+        <Switch>
+          <Route path="/Events">
+            <EventManage />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
       </div>
-      <Switch>
-        <Route path="/Event">
-          <EventManage />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
     </Router>
+    </div>
   )
 }
 

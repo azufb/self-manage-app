@@ -1,0 +1,23 @@
+.contents {
+  width: 100vh;
+}
+
+label {
+  font-weight: bold;
+}
+
+.eventNameInput {
+  width: 100%;
+}
+
+.commentInput {
+  width: 100%;
+}
+
+.btnArea {
+  text-align: center;
+}
+
+.registerBtn {
+  width: 100%;
+}

@@ -1,0 +1,15 @@
+.eventNameInput {
+  width: 100%;
+}
+
+.commentInput {
+  width: 100%;
+}
+
+.btns {
+  display: flex;
+}
+
+.btn {
+  margin: 10px 5px;
+}

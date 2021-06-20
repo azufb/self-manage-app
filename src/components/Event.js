@@ -1,6 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { DELETE_EVENT, EDIT_EVENT } from "../actions";
 import AppContext from "../contexts/AppContext";
+import Button from '@material-ui/core/Button';
+import CheckIcon from '@material-ui/icons/Check';
+import CloseIcon from '@material-ui/icons/Close';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
+import styles from "../styles/Event.css";
 
 const JSON_KEYWORD = "events";
 
@@ -55,13 +61,21 @@ const Event = ({event}) => {
       (
         <tr>
           <td>{event.id}</td>
-          <td><input value={name} onChange={(e) => setName(e.target.value)} /></td>
-          <td><input value={comment} onChange={(e) => setComment(e.target.value)} /></td>
-          <td>
-            <button type="button" onClick={handleEditEvent}>適用</button>
-          </td>
-          <td>
-          <button type="button" onClick={handleEditable}>閉じる</button>
+          <td><input value={name} onChange={(e) => setName(e.target.value)} className={styles.eventNameInput} /></td>
+          <td><textarea value={comment} onChange={(e) => setComment(e.target.value)} className={styles.commentInput} /></td>
+          <td className={styles.btns}>
+            <div className={styles.btn}>
+              <Button variant="contained" color="primary" onClick={handleEditEvent}
+                startIcon={<CheckIcon />}>
+                適用
+              </Button>
+            </div>
+            <div className={styles.btn}>
+              <Button variant="contained" color="default" onClick={handleEditable}
+                startIcon={<CloseIcon />}>
+                閉じる
+              </Button>
+            </div>
           </td>
         </tr>
       ):(
@@ -69,11 +83,19 @@ const Event = ({event}) => {
           <td>{event.id}</td>
           <td>{event.name}</td>
           <td>{event.comment}</td>
-          <td>
-            <button type="button" onClick={handleDeleteEvent}>削除</button>
-          </td>
-          <td>
-            <button type="button" onClick={handleEditable}>編集</button>
+          <td className={styles.btns}>
+            <div className={styles.btn}>
+              <Button variant="contained" color="secondary" onClick={handleDeleteEvent}
+                startIcon={<DeleteIcon />}>
+                削除
+              </Button>
+            </div>
+            <div className={styles.btn}>
+              <Button variant="contained" color="default" onClick={handleEditable}
+                startIcon={<EditIcon />}>
+                編集
+              </Button>
+            </div>
           </td>
         </tr>
       )

@@ -1,9 +1,13 @@
 .contents {
-  width: 100vh;
+  width: 100%;
 }
 
 label {
   font-weight: bold;
+}
+
+.formContent {
+  margin-top: 20px;
 }
 
 .eventNameInput {
@@ -16,6 +20,7 @@ label {
 
 .btnArea {
   text-align: center;
+  margin-top: 15px;
 }
 
 .registerBtn {

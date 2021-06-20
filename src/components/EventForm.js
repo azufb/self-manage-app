@@ -34,15 +34,11 @@ const EventForm = () => {
         </div>
         <input type="text" id="titleForm" value={name} onChange={(e) => setName(e.target.value)}
           placeholder="イベント名を入力してください。" className={styles.eventNameInput} />
-        <br />
-        <br />
-        <div>
+        <div className={styles.formContent}>
           <label htmlFor="commentForm">コメント</label>
         </div>
         <textarea id="commentForm" value={comment} onChange={(e) => setComment(e.target.value)}
           placeholder="コメントを入力してください。" className={styles.commentInput} rows="10" />
-        <br />
-        <br />
         <div className={styles.btnArea}>
           <Button onClick={handleAddEvent} variant="contained" size="medium" color="primary"
             fontWeight="fontWeightBold" className={styles.registerBtn} disabled={disableResister}>

@@ -79,7 +79,7 @@ const Event = ({event}) => {
       <tr>
         <td>{event.id}</td>
         <td>{event.name}</td>
-        <td>{event.url}</td>
+        <td><a href={event.url} target="_blank" rel="noopener noreferrer">{event.url}</a></td>
         <td className={styles.btns}>
           <div className={styles.btn}>
             <Button variant="contained" color="secondary" onClick={handleDeleteEvent}

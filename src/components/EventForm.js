@@ -8,6 +8,7 @@ const EventForm = () => {
   const { dispatch } = useContext(AppContext); // contextから、dispatchを受け取る。
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
+  const [url, setUrl] = useState("");
 
   const handleAddEvent = (e) => {
     e.preventDefault();
@@ -15,13 +16,15 @@ const EventForm = () => {
     dispatch({
       type: ADD_EVENT,
       name,
-      comment
+      comment,
+      url
     });
 
     window.alert(`「${name}」というイベントを登録しました。`);
 
     setName("");
     setComment("");
+    setUrl("");
   }
 
   const disableResister = name === "" || comment === "";
@@ -39,6 +42,11 @@ const EventForm = () => {
         </div>
         <textarea id="commentForm" value={comment} onChange={(e) => setComment(e.target.value)}
           placeholder="コメントを入力してください。" className={styles.commentInput} rows="10" />
+        <div className={styles.formContent}>
+          <label htmlFor="urlForm">URL</label>
+        </div>
+        <input type="url" id="urlForm" value={url} onChange={(e) => setUrl(e.target.value)}
+          placeholder="https://example.com" className={styles.eventNameInput} />
         <div className={styles.btnArea}>
           <Button onClick={handleAddEvent} variant="contained" size="medium" color="primary"
             fontWeight="fontWeightBold" className={styles.registerBtn} disabled={disableResister}>

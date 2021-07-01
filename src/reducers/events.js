@@ -4,7 +4,7 @@ const events = (state = [], action) => {
   switch (action.type) {
     // イベントを追加する
     case ADD_EVENT:
-      const event = { name: action.name, comment: action.comment };
+      const event = { name: action.name, comment: action.comment, url: action.url };
       const length = state.length;
       const id  = length === 0 ? 1 : state[length -1].id + 1;
       return [...state, { id, ...event }];
@@ -19,6 +19,7 @@ const events = (state = [], action) => {
         if (event.id === action.id) {
           event.name = action.name;
           event.comment = action.comment;
+          event.url = action.url;
         }
         return event;
       });

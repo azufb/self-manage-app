@@ -16,6 +16,7 @@ const Event = ({event}) => {
   const id = event.id;
   const [name, setName] = useState(event.name);
   const [comment, setComment] = useState(event.comment);
+  const [url, setUrl] = useState(event.url);
   const [editable, setEditable] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -34,6 +35,7 @@ const Event = ({event}) => {
   useEffect(() => {
     setName(event.name);
     setComment(event.comment);
+    setUrl(event.url);
   }, [event.name, event.comment]);
 
   // 詳細モーダルの開閉を管理
@@ -59,11 +61,13 @@ const Event = ({event}) => {
       type: EDIT_EVENT,
       id,
       name,
-      comment
+      comment,
+      url
     });
 
     setName(event.name);
     setComment(event.comment);
+    setUrl(event.url);
 
     window.alert("変更が適用されました。");
 
@@ -75,6 +79,7 @@ const Event = ({event}) => {
       <tr>
         <td>{event.id}</td>
         <td>{event.name}</td>
+        <td>{event.url}</td>
         <td className={styles.btns}>
           <div className={styles.btn}>
             <Button variant="contained" color="secondary" onClick={handleDeleteEvent}
@@ -109,13 +114,19 @@ const Event = ({event}) => {
             <label>イベント名：</label>
           </div>
           <div>
-            <input value={name} onChange={(e) => setName(e.target.value)} className={styles.eventNameInput} />
+            <input type="text" value={name} onChange={(e) => setName(e.target.value)} className={styles.eventNameInput} />
           </div>
           <div>
             <label>コメント：</label>
           </div>
           <div>
             <textarea value={comment} onChange={(e) => setComment(e.target.value)} className={styles.commentInput} />
+          </div>
+          <div>
+            <label>URL：</label>
+          </div>
+          <div>
+            <input type="url" value={url} onChange={(e) => setUrl(e.target.value)} className={styles.eventNameInput} />
           </div>
           <div className={styles.btns}>
             <div className={styles.btn}>

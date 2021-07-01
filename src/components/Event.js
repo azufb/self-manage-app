@@ -17,6 +17,7 @@ const Event = ({event}) => {
   const [name, setName] = useState(event.name);
   const [comment, setComment] = useState(event.comment);
   const [url, setUrl] = useState(event.url);
+  const [date, setDate] = useState(event.date);
   const [editable, setEditable] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -62,7 +63,8 @@ const Event = ({event}) => {
       id,
       name,
       comment,
-      url
+      url,
+      date
     });
 
     setName(event.name);
@@ -80,6 +82,7 @@ const Event = ({event}) => {
         <td>{event.id}</td>
         <td>{event.name}</td>
         <td><a href={event.url} target="_blank" rel="noopener noreferrer">{event.url}</a></td>
+        <td>{event.date}</td>
         <td className={styles.btns}>
           <div className={styles.btn}>
             <Button variant="contained" color="secondary" onClick={handleDeleteEvent}
@@ -111,23 +114,27 @@ const Event = ({event}) => {
         <div className={styles.modalBody}>
           <h4>イベントID“{event.id}”を編集する</h4>
           <div>
-            <label>イベント名：</label>
+            <label>イベント名</label>
           </div>
           <div>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} className={styles.eventNameInput} />
           </div>
           <div>
-            <label>コメント：</label>
+            <label>コメント</label>
           </div>
           <div>
             <textarea value={comment} onChange={(e) => setComment(e.target.value)} className={styles.commentInput} />
           </div>
           <div>
-            <label>URL：</label>
+            <label>URL</label>
           </div>
           <div>
             <input type="url" value={url} onChange={(e) => setUrl(e.target.value)} className={styles.eventNameInput} />
           </div>
+          <div>
+            <label>参加日</label>
+          </div>
+          <input type="date" id="dateForm" value={date} onChange={(e)=> setDate(e.target.value)} />
           <div className={styles.btns}>
             <div className={styles.btn}>
               <Button variant="contained" color="primary" onClick={handleEditEvent}

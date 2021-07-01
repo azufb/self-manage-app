@@ -9,6 +9,7 @@ const EventForm = () => {
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
   const [url, setUrl] = useState("");
+  const [date, setDate] = useState("2021-07-01");
 
   const handleAddEvent = (e) => {
     e.preventDefault();
@@ -17,7 +18,8 @@ const EventForm = () => {
       type: ADD_EVENT,
       name,
       comment,
-      url
+      url,
+      date
     });
 
     window.alert(`「${name}」というイベントを登録しました。`);
@@ -47,6 +49,10 @@ const EventForm = () => {
         </div>
         <input type="url" id="urlForm" value={url} onChange={(e) => setUrl(e.target.value)}
           placeholder="https://example.com" className={styles.eventNameInput} />
+        <div className={styles.formContent}>
+          <label htmlFor="dateForm">参加日</label>
+        </div>
+        <input type="date" id="dateForm" value={date} onChange={(e)=> setDate(e.target.value)} />
         <div className={styles.btnArea}>
           <Button onClick={handleAddEvent} variant="contained" size="medium" color="primary"
             fontWeight="fontWeightBold" className={styles.registerBtn} disabled={disableResister}>

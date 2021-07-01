@@ -13,3 +13,12 @@
 .btn {
   margin: 10px 5px;
 }
+
+.modalBody {
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  width: 400px;
+  background-color: cornflowerblue;
+  padding: 15px;
+}

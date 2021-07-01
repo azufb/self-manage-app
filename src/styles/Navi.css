@@ -1,9 +1,11 @@
 .total {
+  position: absolute;
   height: 100vh;
   width: 100%;
 }
 
 .side {
+  width: 10%;
   border-right: 1px solid #000;
 }
 

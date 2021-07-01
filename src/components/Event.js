@@ -7,6 +7,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import styles from "../styles/Event.css";
+import Modal from "@material-ui/core/Modal";
 
 const JSON_KEYWORD = "events";
 
@@ -16,6 +17,7 @@ const Event = ({event}) => {
   const [name, setName] = useState(event.name);
   const [comment, setComment] = useState(event.comment);
   const [editable, setEditable] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleDeleteEvent = () => {
     const confirmMessage = window.confirm("イベントを削除してもよいですか？");
@@ -34,9 +36,22 @@ const Event = ({event}) => {
     setComment(event.comment);
   }, [event.name, event.comment]);
 
+  // 詳細モーダルの開閉を管理
+  const handleOpen = () => {
+    setOpen(true);
+  }
+
+  const handleClose = () => {
+    setOpen(false);
+  }
+
   // editableがtrueであれば、inputエリアを表示。
   const handleEditable = () => {
-    setEditable(!editable);
+    setEditable(true);
+  }
+
+  const handleEditClose = () => {
+    setEditable(false);
   }
 
   const handleEditEvent = () => {
@@ -57,49 +72,61 @@ const Event = ({event}) => {
 
   return (
     <React.Fragment>
-    {editable ? 
-      (
-        <tr>
-          <td>{event.id}</td>
-          <td><input value={name} onChange={(e) => setName(e.target.value)} className={styles.eventNameInput} /></td>
-          <td><textarea value={comment} onChange={(e) => setComment(e.target.value)} className={styles.commentInput} /></td>
-          <td className={styles.btns}>
+      <tr>
+        <td>{event.id}</td>
+        <td>{event.name}</td>
+        <td className={styles.btns}>
+          <div className={styles.btn}>
+            <Button variant="contained" color="secondary" onClick={handleDeleteEvent}
+              startIcon={<DeleteIcon />}>
+              削除
+            </Button>
+          </div>
+          <div className={styles.btn}>
+            <Button variant="contained" color="secondary" onClick={handleOpen}>
+              詳細
+            </Button>
+          </div>
+          <div className={styles.btn}>
+            <Button variant="contained" color="default" onClick={handleEditable}
+              startIcon={<EditIcon />}>
+              編集
+            </Button>
+          </div>
+        </td>
+      </tr>
+      <Modal open={open} onClose={handleClose} aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description">
+        <div className={styles.modalBody}>
+          <h4>コメント：</h4>
+          {event.comment}
+        </div>
+      </Modal>
+
+      <Modal open={editable} onClose={handleEditClose} aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description">
+        <div className={styles.modalBody}>
+          <h4>イベントID“{event.id}”を編集する</h4>
+          <div>
+            <label>イベント名：</label>
+          </div>
+          <div>
+            <input value={name} onChange={(e) => setName(e.target.value)} className={styles.eventNameInput} />
+          </div>
+          <div>
+            <label>コメント：</label>
+          </div>
+          <div>
+            <textarea value={comment} onChange={(e) => setComment(e.target.value)} className={styles.commentInput} />
+          </div>
+          <div className={styles.btns}>
             <div className={styles.btn}>
               <Button variant="contained" color="primary" onClick={handleEditEvent}
                 startIcon={<CheckIcon />}>
                 適用
               </Button>
             </div>
-            <div className={styles.btn}>
-              <Button variant="contained" color="default" onClick={handleEditable}
-                startIcon={<CloseIcon />}>
-                閉じる
-              </Button>
-            </div>
-          </td>
-        </tr>
-      ):(
-        <tr>
-          <td>{event.id}</td>
-          <td>{event.name}</td>
-          <td>{event.comment}</td>
-          <td className={styles.btns}>
-            <div className={styles.btn}>
-              <Button variant="contained" color="secondary" onClick={handleDeleteEvent}
-                startIcon={<DeleteIcon />}>
-                削除
-              </Button>
-            </div>
-            <div className={styles.btn}>
-              <Button variant="contained" color="default" onClick={handleEditable}
-                startIcon={<EditIcon />}>
-                編集
-              </Button>
-            </div>
-          </td>
-        </tr>
-      )
-    }
+          </div>
+        </div>
+      </Modal>
     </React.Fragment>
   )
 }

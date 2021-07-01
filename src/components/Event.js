@@ -3,7 +3,6 @@ import { DELETE_EVENT, EDIT_EVENT } from "../actions";
 import AppContext from "../contexts/AppContext";
 import Button from '@material-ui/core/Button';
 import CheckIcon from '@material-ui/icons/Check';
-import CloseIcon from '@material-ui/icons/Close';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import styles from "../styles/Event.css";
@@ -37,7 +36,8 @@ const Event = ({event}) => {
     setName(event.name);
     setComment(event.comment);
     setUrl(event.url);
-  }, [event.name, event.comment]);
+    setDate(event.date);
+  }, [event.name, event.comment, event.url, event.date]);
 
   // 詳細モーダルの開閉を管理
   const handleOpen = () => {
@@ -70,6 +70,7 @@ const Event = ({event}) => {
     setName(event.name);
     setComment(event.comment);
     setUrl(event.url);
+    setDate(event.date);
 
     window.alert("変更が適用されました。");
 

@@ -9,7 +9,7 @@ const EventForm = () => {
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
   const [url, setUrl] = useState("");
-  const [date, setDate] = useState("2021-07-01");
+  const [date, setDate] = useState(new Date());
 
   const handleAddEvent = (e) => {
     e.preventDefault();
@@ -27,6 +27,7 @@ const EventForm = () => {
     setName("");
     setComment("");
     setUrl("");
+    setDate(new Date());
   }
 
   const disableResister = name === "" || comment === "";

@@ -16,7 +16,7 @@ const Navi = () => {
         <div className={styles.sideNavi}>
           <div className={styles.side}>
             <div className={styles.navi}>
-              <NavLink exact to="/" activeClassName={styles.activeNavi}>Self-Manage</NavLink>
+              <NavLink exact to="/" activeClassName={styles.activeNavi}>Self Manage</NavLink>
             </div>
             <div className={styles.navi}>
               <NavLink to="/Events" activeClassName={styles.activeNavi}>Events</NavLink>

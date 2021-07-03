@@ -12,9 +12,9 @@ const EventList = () => {
         <thead>
           <tr className={styles.tableHeader}>
             <th className={styles.tableHeaderID}>ID</th>
-            <th>イベント名</th>
-            <th>URL</th>
-            <th>参加日</th>
+            <th className={styles.tableHeaderName}>イベント名</th>
+            <th className={styles.tableHeaderURL}>URL</th>
+            <th className={styles.tableHeaderDate}>参加日</th>
             <th className={styles.tableHeaderBtns}></th>
           </tr>
         </thead>

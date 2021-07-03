@@ -3,6 +3,7 @@ table {
   border-collapse: collapse;
   margin-top: 50px;
   margin-bottom: 50px;
+  table-layout: fixed;
 }
 
 .tableHeader {
@@ -13,7 +14,18 @@ table {
   width: 5%;
 }
 
+.tableHeaderName {
+  width: 25%;
+}
+
+.tableHeaderURL {
+  width: 20%;
+}
+
+.tableHeaderDate {
+  width: 10%;
+}
+
 .tableHeaderBtns {
-  width: 15%;
-  float: right;
+  width: 25%;
 }

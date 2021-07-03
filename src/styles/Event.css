@@ -18,9 +18,9 @@
 .modalBody {
   position: absolute;
   left: 40%;
-  top: 50%;
+  top: 30%;
   width: 400px;
-  background-color: cornflowerblue;
+  background-color: #5befa7;
   padding: 15px;
 }
 
@@ -34,4 +34,8 @@
 
 .btnModal {
   margin: 10px 0;
+}
+
+.formContent {
+  margin-top: 20px;
 }

@@ -83,10 +83,10 @@ const Event = ({event}) => {
   return (
     <React.Fragment>
       <tr>
-        <td>{event.id}</td>
+        <td className={styles.id}>{event.id}</td>
         <td>{event.name}</td>
         <td><a href={event.url} target="_blank" rel="noopener noreferrer">{event.url}</a></td>
-        <td>{event.date}</td>
+        <td className={styles.date}>{event.date}</td>
         <td className={styles.btns}>
           <div className={styles.btn}>
             <Button variant="contained" color="secondary" onClick={handleDeleteEvent}
@@ -140,8 +140,8 @@ const Event = ({event}) => {
             <label>参加日</label>
           </div>
           <input type="date" id="dateForm" value={date} onChange={(e)=> setDate(e.target.value)} />
-          <div className={styles.btns}>
-            <div className={styles.btn}>
+          <div>
+            <div className={styles.btnModal}>
               <Button variant="contained" color="primary" onClick={handleEditEvent}
                 startIcon={<CheckIcon />} disabled={disableResister}>
                 適用

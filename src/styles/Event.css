@@ -8,6 +8,7 @@
 
 .btns {
   display: flex;
+  float: right;
 }
 
 .btn {
@@ -21,4 +22,16 @@
   width: 400px;
   background-color: cornflowerblue;
   padding: 15px;
+}
+
+.id {
+  text-align: center;
+}
+
+.date {
+  text-align: center;
+}
+
+.btnModal {
+  margin: 10px 0;
 }

@@ -4,6 +4,7 @@ import AppContext from "../contexts/AppContext";
 import Button from '@material-ui/core/Button';
 import CheckIcon from '@material-ui/icons/Check';
 import DeleteIcon from '@material-ui/icons/Delete';
+import MessageIcon from '@material-ui/icons/Message';
 import EditIcon from '@material-ui/icons/Edit';
 import styles from "../styles/Event.css";
 import Modal from "@material-ui/core/Modal";
@@ -77,6 +78,8 @@ const Event = ({event}) => {
     localStorage.setItem(JSON_KEYWORD, JSON.stringify(state));
   }
 
+  const disableResister = name === "" || comment === "" || date === "";
+
   return (
     <React.Fragment>
       <tr>
@@ -92,8 +95,9 @@ const Event = ({event}) => {
             </Button>
           </div>
           <div className={styles.btn}>
-            <Button variant="contained" color="secondary" onClick={handleOpen}>
-              詳細
+            <Button variant="contained" color="default" onClick={handleOpen}
+              startIcon={<MessageIcon />}>
+              コメントを見る
             </Button>
           </div>
           <div className={styles.btn}>
@@ -139,7 +143,7 @@ const Event = ({event}) => {
           <div className={styles.btns}>
             <div className={styles.btn}>
               <Button variant="contained" color="primary" onClick={handleEditEvent}
-                startIcon={<CheckIcon />}>
+                startIcon={<CheckIcon />} disabled={disableResister}>
                 適用
               </Button>
             </div>

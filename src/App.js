@@ -1,8 +1,8 @@
 import React, { useEffect, useReducer } from 'react';
-//import './App.css';
 import Navi from "./components/Navi";
 import reducer from "./reducers";
 import AppContext from './contexts/AppContext';
+import styles from "./styles/App.css";
 
 const JSON_KEYWORD = "events";
 
@@ -20,8 +20,9 @@ const App = () => {
 
   return (
     <AppContext.Provider value={{ state, dispatch }} >
-      <div className="App-header">
+      <div className={styles.header}>
         <Navi />
+        <footer>&copy;2021 Azusa Okamoto.</footer>
       </div>
     </AppContext.Provider>
   );

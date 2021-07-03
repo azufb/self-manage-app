@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  NavLink
 } from "react-router-dom";
 import Home from "./Home";
 import EventManage from "./EventManage";
@@ -16,13 +16,13 @@ const Navi = () => {
       <div className={styles.sideNavi}>
         <div className={styles.side}>
           <div className={styles.navi}>
-            <Link to="/">Self-Manage</Link>
+            <NavLink exact to="/" activeClassName={styles.activeNavi}>Self-Manage</NavLink>
           </div>
           {/*<div className={styles.navi}>
             <Link to="/">HOME</Link>
           </div>*/}
           <div className={styles.navi}>
-            <Link to="/Events">Events</Link>
+            <NavLink to="/Events" activeClassName={styles.activeNavi}>Events</NavLink>
           </div>
         </div>
         <Switch>

@@ -9,7 +9,7 @@ const EventForm = () => {
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
   const [url, setUrl] = useState("");
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState("");
 
   const handleAddEvent = (e) => {
     e.preventDefault();
@@ -27,10 +27,10 @@ const EventForm = () => {
     setName("");
     setComment("");
     setUrl("");
-    setDate(new Date());
+    setDate("");
   }
 
-  const disableResister = name === "" || comment === "";
+  const disableResister = name === "" || comment === "" || date === "";
 
   return (
     <div className={styles.contents}>

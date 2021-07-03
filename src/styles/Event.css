@@ -39,3 +39,7 @@
 .formContent {
   margin-top: 20px;
 }
+
+.requiredMark {
+  color: red;
+}

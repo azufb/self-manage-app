@@ -36,12 +36,12 @@ const EventForm = () => {
     <div className={styles.contents}>
       <form>
         <div>
-          <label htmlFor="titleForm">イベント名</label>
+          <label htmlFor="titleForm">イベント名<span className={styles.requiredMark}>＊</span></label>
         </div>
         <input type="text" id="titleForm" value={name} onChange={(e) => setName(e.target.value)}
           placeholder="イベント名を入力してください。" className={styles.eventNameInput} />
         <div className={styles.formContent}>
-          <label htmlFor="commentForm">コメント</label>
+          <label htmlFor="commentForm">コメント<span className={styles.requiredMark}>＊</span></label>
         </div>
         <textarea id="commentForm" value={comment} onChange={(e) => setComment(e.target.value)}
           placeholder="コメントを入力してください。" className={styles.commentInput} rows="10" />
@@ -51,7 +51,7 @@ const EventForm = () => {
         <input type="url" id="urlForm" value={url} onChange={(e) => setUrl(e.target.value)}
           placeholder="https://example.com" className={styles.eventNameInput} />
         <div className={styles.formContent}>
-          <label htmlFor="dateForm">参加日</label>
+          <label htmlFor="dateForm">参加日<span className={styles.requiredMark}>＊</span></label>
         </div>
         <input type="date" id="dateForm" value={date} onChange={(e)=> setDate(e.target.value)} />
         <div className={styles.btnArea}>

@@ -121,25 +121,25 @@ const Event = ({event}) => {
         <div className={styles.modalBody}>
           <h4>イベントID“{event.id}”を編集する</h4>
           <div>
-            <label>イベント名</label>
+            <label>イベント名<span className={styles.requiredMark}>＊</span></label>
           </div>
           <div>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} className={styles.eventNameInput} />
           </div>
           <div className={styles.formContent}>
-            <label>コメント</label>
+            <label>コメント<span className={styles.requiredMark}>＊</span></label>
           </div>
           <div>
-            <textarea value={comment} onChange={(e) => setComment(e.target.value)} className={styles.commentInput} />
+            <textarea value={comment} onChange={(e) => setComment(e.target.value)} className={styles.commentInput} rows="5" />
           </div>
           <div className={styles.formContent}>
             <label>URL</label>
           </div>
           <div>
-            <input type="url" value={url} onChange={(e) => setUrl(e.target.value)} className={styles.eventNameInput} />
+            <input type="url" value={url} onChange={(e) => setUrl(e.target.value)} className={styles.eventNameInput} placeholder="https://example.com" />
           </div>
           <div className={styles.formContent}>
-            <label>参加日</label>
+            <label>参加日<span className={styles.requiredMark}>＊</span></label>
           </div>
           <input type="date" id="dateForm" value={date} onChange={(e)=> setDate(e.target.value)} />
           <div>

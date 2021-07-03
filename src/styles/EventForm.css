@@ -26,3 +26,7 @@ label {
 .registerBtn {
   width: 100%;
 }
+
+.requiredMark {
+  color: red;
+}

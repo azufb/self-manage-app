@@ -110,8 +110,10 @@ const Event = ({event}) => {
       </tr>
       <Modal open={open} onClose={handleClose} aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description">
         <div className={styles.modalBody}>
-          <h4>コメント：</h4>
-          {event.comment}
+          <h4>コメント</h4>
+          <div>
+            {event.comment}
+          </div>
         </div>
       </Modal>
 
@@ -124,19 +126,19 @@ const Event = ({event}) => {
           <div>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} className={styles.eventNameInput} />
           </div>
-          <div>
+          <div className={styles.formContent}>
             <label>コメント</label>
           </div>
           <div>
             <textarea value={comment} onChange={(e) => setComment(e.target.value)} className={styles.commentInput} />
           </div>
-          <div>
+          <div className={styles.formContent}>
             <label>URL</label>
           </div>
           <div>
             <input type="url" value={url} onChange={(e) => setUrl(e.target.value)} className={styles.eventNameInput} />
           </div>
-          <div>
+          <div className={styles.formContent}>
             <label>参加日</label>
           </div>
           <input type="date" id="dateForm" value={date} onChange={(e)=> setDate(e.target.value)} />

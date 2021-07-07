@@ -76,6 +76,7 @@ const Event = ({event}) => {
     window.alert("変更が適用されました。");
 
     localStorage.setItem(JSON_KEYWORD, JSON.stringify(state));
+    setEditable(false);
   }
 
   const disableResister = name === "" || comment === "" || date === "";

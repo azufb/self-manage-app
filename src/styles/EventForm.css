@@ -30,3 +30,14 @@ label {
 .requiredMark {
   color: red;
 }
+
+.modalBody {
+  position: absolute;
+  top: 10%;
+  margin: 0 auto;
+  left: 10%;
+  right: 10%;
+  width: 80%;
+  background-color: #5befa7;
+  padding: 15px;
+}

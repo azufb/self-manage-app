@@ -19,12 +19,12 @@ const Navi = () => {
           <div className={styles.side}>
             <div className={styles.navi}>
               <NavLink exact to="/" activeClassName={styles.activeNavi}>
-                <span className={styles.naviTitle}><HomeIcon /><span>Event Recorder</span></span>
+                <span className={styles.naviTitle}><HomeIcon /><span>Events Recorder</span></span>
               </NavLink>
             </div>
             <div className={styles.navi}>
               <NavLink to="/Events" activeClassName={styles.activeNavi}>
-                <span className={styles.naviTitle}><EventAvailableIcon /><span>Recorder</span></span>
+                <span className={styles.naviTitle}><EventAvailableIcon /><span>Events</span></span>
               </NavLink>
             </div>
             <footer>&copy;2021 Azusa.</footer>

@@ -40,6 +40,10 @@
   margin-top: 20px;
 }
 
+.tag {
+  margin-bottom: 15px;
+}
+
 .comment {
   white-space: pre;
 }

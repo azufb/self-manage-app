@@ -10,17 +10,20 @@ import styles from "../styles/EventForm.css";
 const EventForm = () => {
   const { dispatch } = useContext(AppContext); // contextから、dispatchを受け取る。
   const [name, setName] = useState("");
+  const [tag, setTag] = useState("");
   const [comment, setComment] = useState("");
   const [url, setUrl] = useState("");
   const [date, setDate] = useState("");
   const [open, setOpen] = useState(false);
 
   const handleAddEvent = (e) => {
+    console.log(tag);
     e.preventDefault();
 
     dispatch({
       type: ADD_EVENT,
       name,
+      tag,
       comment,
       url,
       date
@@ -29,6 +32,7 @@ const EventForm = () => {
     window.alert(`「${name}」というイベントを登録しました。`);
 
     setName("");
+    setTag("");
     setComment("");
     setUrl("");
     setDate("");
@@ -51,6 +55,7 @@ const EventForm = () => {
     if (confirmMessage) {
       // 前の入力情報を残さない。
       setName("");
+      setTag("");
       setComment("");
       setUrl("");
       setDate("");
@@ -60,7 +65,7 @@ const EventForm = () => {
     }
   }
 
-  const disableResister = name === "" || comment === "" || date === "";
+  const disableResister = name === "" || comment === "" || date === "" || tag === "";
 
 
   return (
@@ -78,6 +83,16 @@ const EventForm = () => {
           </div>
           <input type="text" id="titleForm" value={name} onChange={(e) => setName(e.target.value)}
             placeholder="イベント名を入力してください。" className={styles.eventNameInput} />
+          <div>
+            <label htmlFor="tagForm">タグ<span className={styles.requiredMark}>＊</span></label>
+          </div>
+          <select id="tagForm" value={tag} onChange={(e) => setTag(e.target.value)}>
+            <option value={""}>タグを選択してください</option>
+            <option value={"#社内"}>#社内</option>
+            <option value={"#社外"}>#社外</option>
+            <option value={"#オンライン"}>#オンライン</option>
+            <option value={"#オフライン"}>#オフライン</option>
+          </select>
           <div className={styles.formContent}>
             <label htmlFor="commentForm">コメント<span className={styles.requiredMark}>＊</span></label>
           </div>

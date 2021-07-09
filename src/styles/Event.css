@@ -33,13 +33,13 @@
 }
 
 .btnModal {
-  margin: 10px 0;
+  margin: 10px 5px;
 }
 
 .formContent {
   margin-top: 20px;
 }
 
-.requiredMark {
-  color: red;
+.comment {
+  white-space: pre;
 }

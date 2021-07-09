@@ -23,6 +23,10 @@ label {
   margin-top: 15px;
 }
 
+.btn {
+  margin-bottom: 15px;
+}
+
 .registerBtn {
   width: 100%;
 }

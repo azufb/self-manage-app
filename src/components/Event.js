@@ -6,8 +6,9 @@ import CheckIcon from '@material-ui/icons/Check';
 import DeleteIcon from '@material-ui/icons/Delete';
 import MessageIcon from '@material-ui/icons/Message';
 import EditIcon from '@material-ui/icons/Edit';
-import styles from "../styles/Event.css";
+import CloseIcon from '@material-ui/icons/Close';
 import Modal from "@material-ui/core/Modal";
+import styles from "../styles/Event.css";
 
 const JSON_KEYWORD = "events";
 
@@ -22,7 +23,7 @@ const Event = ({event}) => {
   const [open, setOpen] = useState(false);
 
   const handleDeleteEvent = () => {
-    const confirmMessage = window.confirm("イベントを削除してもよいですか？");
+    const confirmMessage = window.confirm("削除したイベントを復元することはできません。イベントを削除してもよいですか？");
     if (confirmMessage) {
       dispatch({
         type: DELETE_EVENT,
@@ -79,8 +80,6 @@ const Event = ({event}) => {
     setEditable(false);
   }
 
-  const disableResister = name === "" || comment === "" || date === "";
-
   return (
     <React.Fragment>
       <tr>
@@ -97,13 +96,13 @@ const Event = ({event}) => {
           <div className={styles.btn}>
             <Button variant="contained" color="default" onClick={handleOpen}
               startIcon={<MessageIcon />}>
-              詳細
+              <strong>詳細</strong>
             </Button>
           </div>
           <div className={styles.btn}>
             <Button variant="contained" color="default" onClick={handleEditable}
               startIcon={<EditIcon />}>
-              編集
+              <strong>編集</strong>
             </Button>
           </div>
         </td>
@@ -111,9 +110,17 @@ const Event = ({event}) => {
       <Modal open={open} onClose={handleClose} aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description">
         <div className={styles.modalBody}>
           <h4>コメント</h4>
-          <div>
+          <div className={styles.comment}>
             {event.comment}
           </div>
+          <div className={styles.btns}>
+              <div className={styles.btnModal}>
+                <Button variant="contained" color="default" onClick={handleClose}
+                  startIcon={<CloseIcon />}>
+                  <strong>とじる</strong>
+                </Button>
+              </div>
+            </div>
         </div>
       </Modal>
 
@@ -121,13 +128,13 @@ const Event = ({event}) => {
         <div className={styles.modalBody}>
           <h4>イベントID“{event.id}”を編集する</h4>
           <div>
-            <label>イベント名<span className={styles.requiredMark}>＊</span></label>
+            <label>イベント名</label>
           </div>
           <div>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} className={styles.eventNameInput} />
           </div>
           <div className={styles.formContent}>
-            <label>コメント<span className={styles.requiredMark}>＊</span></label>
+            <label>コメント</label>
           </div>
           <div>
             <textarea value={comment} onChange={(e) => setComment(e.target.value)} className={styles.commentInput} rows="5" />
@@ -139,15 +146,23 @@ const Event = ({event}) => {
             <input type="url" value={url} onChange={(e) => setUrl(e.target.value)} className={styles.eventNameInput} placeholder="https://example.com" />
           </div>
           <div className={styles.formContent}>
-            <label>参加日<span className={styles.requiredMark}>＊</span></label>
+            <label>参加日</label>
           </div>
           <input type="date" id="dateForm" value={date} onChange={(e)=> setDate(e.target.value)} />
           <div>
-            <div className={styles.btnModal}>
-              <Button variant="contained" color="primary" onClick={handleEditEvent}
-                startIcon={<CheckIcon />} disabled={disableResister}>
-                適用
-              </Button>
+            <div className={styles.btns}>
+              <div className={styles.btnModal}>
+                <Button variant="contained" color="primary" onClick={handleEditEvent}
+                  startIcon={<CheckIcon />}>
+                  <strong>適用</strong>
+                </Button>
+              </div>
+              <div className={styles.btnModal}>
+                <Button variant="contained" color="default" onClick={handleEditClose}
+                  startIcon={<CloseIcon />}>
+                  <strong>とじる</strong>
+                </Button>
+              </div>
             </div>
           </div>
         </div>

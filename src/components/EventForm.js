@@ -2,10 +2,10 @@ import React, { useState, useContext } from "react";
 import { ADD_EVENT } from "../actions";
 import AppContext from "../contexts/AppContext";
 import Button from '@material-ui/core/Button';
-import styles from "../styles/EventForm.css";
-import EditIcon from '@material-ui/icons/Edit';
 import AddIcon from '@material-ui/icons/Add';
+import CloseIcon from '@material-ui/icons/Close';
 import Modal from "@material-ui/core/Modal";
+import styles from "../styles/EventForm.css";
 
 const EventForm = () => {
   const { dispatch } = useContext(AppContext); // contextから、dispatchを受け取る。
@@ -44,15 +44,32 @@ const EventForm = () => {
     setOpen(false);
   }
 
+  // 間違えてキャンセル押してしまったときのための確認。
+  const handleCanceled = () => {
+    const confirmMessage = window.confirm("イベントの登録をキャンセルしますか？");
+
+    if (confirmMessage) {
+      // 前の入力情報を残さない。
+      setName("");
+      setComment("");
+      setUrl("");
+      setDate("");
+
+      // モーダルとじる
+      setOpen(false);
+    }
+  }
+
   const disableResister = name === "" || comment === "" || date === "";
+
 
   return (
     <div className={styles.contents}>
       <div className={styles.btn}>
-            <Button variant="contained" color="default" onClick={handleOpen}
-              startIcon={<EditIcon />}>
-              入力はここをクリック！
-            </Button>
+        <Button variant="contained" color="primary" onClick={handleOpen}
+          startIcon={<AddIcon />}>
+          <strong>イベントの登録</strong>
+        </Button>
       </div>
       <Modal open={open} onClose={handleClose} aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description">
         <form className={styles.modalBody}>
@@ -76,11 +93,20 @@ const EventForm = () => {
           </div>
           <input type="date" id="dateForm" value={date} onChange={(e)=> setDate(e.target.value)} />
           <div className={styles.btnArea}>
-            <Button onClick={handleAddEvent} variant="contained" size="medium" color="primary"
-              fontWeight="fontWeightBold" className={styles.registerBtn} disabled={disableResister}
-              startIcon={<AddIcon />}>
-              登録
-            </Button>
+            <div className={styles.btn}>
+              <Button onClick={handleAddEvent} variant="contained" size="medium" color="primary"
+                className={styles.registerBtn} disabled={disableResister}
+                startIcon={<AddIcon />}>
+                <strong>登録</strong>
+              </Button>
+            </div>
+            <div className={styles.btn}>
+              <Button onClick={handleCanceled} variant="contained" size="medium" color="default"
+                className={styles.registerBtn}
+                startIcon={<CloseIcon />}>
+                <strong>キャンセル</strong>
+              </Button>
+            </div>
           </div>
         </form>
       </Modal>

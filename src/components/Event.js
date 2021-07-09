@@ -16,6 +16,7 @@ const Event = ({event}) => {
   const {state, dispatch} = useContext(AppContext);
   const id = event.id;
   const [name, setName] = useState(event.name);
+  const [tag, setTag] = useState(event.tag);
   const [comment, setComment] = useState(event.comment);
   const [url, setUrl] = useState(event.url);
   const [date, setDate] = useState(event.date);
@@ -36,10 +37,11 @@ const Event = ({event}) => {
 
   useEffect(() => {
     setName(event.name);
+    setTag(event.tag);
     setComment(event.comment);
     setUrl(event.url);
     setDate(event.date);
-  }, [event.name, event.comment, event.url, event.date]);
+  }, [event.name, event.tag, event.comment, event.url, event.date]);
 
   // 詳細モーダルの開閉を管理
   const handleOpen = () => {
@@ -64,12 +66,14 @@ const Event = ({event}) => {
       type: EDIT_EVENT,
       id,
       name,
+      tag,
       comment,
       url,
       date
     });
 
     setName(event.name);
+    setTag(event.tag);
     setComment(event.comment);
     setUrl(event.url);
     setDate(event.date);
@@ -109,7 +113,11 @@ const Event = ({event}) => {
       </tr>
       <Modal open={open} onClose={handleClose} aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description">
         <div className={styles.modalBody}>
-          <h4>コメント</h4>
+          <label>タグ</label>
+          <div className={styles.tag}>
+            {event.tag}
+          </div>
+          <label>コメント</label>
           <div className={styles.comment}>
             {event.comment}
           </div>
@@ -132,6 +140,17 @@ const Event = ({event}) => {
           </div>
           <div>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} className={styles.eventNameInput} />
+          </div>
+          <div>
+            <label>タグ</label>
+          </div>
+          <div>
+            <select value={tag} onChange={(e) => setTag(e.target.value)}>
+              <option value={"#社内"}>#社内</option>
+              <option value={"#社外"}>#社外</option>
+              <option value={"#オンライン"}>#オンライン</option>
+              <option value={"#オフライン"}>#オフライン</option>
+            </select>
           </div>
           <div className={styles.formContent}>
             <label>コメント</label>

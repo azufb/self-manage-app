@@ -23,7 +23,7 @@ const Event = ({event}) => {
   const [open, setOpen] = useState(false);
 
   const handleDeleteEvent = () => {
-    const confirmMessage = window.confirm("削除したイベントを復元することはできません。イベントを削除してもよいですか？");
+    const confirmMessage = window.confirm("削除したイベントを復元することはできません。\r\nイベントを削除してもよいですか？");
     if (confirmMessage) {
       dispatch({
         type: DELETE_EVENT,

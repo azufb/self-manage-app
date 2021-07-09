@@ -90,15 +90,14 @@ const Event = ({event}) => {
         <td className={styles.date}>{event.date}</td>
         <td className={styles.btns}>
           <div className={styles.btn}>
-            <Button variant="contained" color="secondary" onClick={handleDeleteEvent}
-              startIcon={<DeleteIcon />}>
-              削除
+            <Button variant="contained" color="secondary" onClick={handleDeleteEvent}>
+              <DeleteIcon />
             </Button>
           </div>
           <div className={styles.btn}>
             <Button variant="contained" color="default" onClick={handleOpen}
               startIcon={<MessageIcon />}>
-              コメントを見る
+              詳細
             </Button>
           </div>
           <div className={styles.btn}>

@@ -46,7 +46,7 @@ const EventForm = () => {
 
   // 間違えてキャンセル押してしまったときのための確認。
   const handleCanceled = () => {
-    const confirmMessage = window.confirm("イベントの登録をキャンセルしますか？");
+    const confirmMessage = window.confirm("入力途中の情報は復元できません。\r\nイベントの登録をキャンセルしますか？");
 
     if (confirmMessage) {
       // 前の入力情報を残さない。

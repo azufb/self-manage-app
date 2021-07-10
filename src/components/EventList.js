@@ -10,6 +10,7 @@ const EventList = () => {
   const [rowsPerPage] = useState(5);
 
   const handleChangePage = (e, newPage) => {
+    e.preventDefault();
     setPage(newPage);
   };
 
@@ -17,27 +18,30 @@ const EventList = () => {
       <table>
         <thead>
           <tr className={styles.tableHeader}>
-            <th className={styles.tableHeaderID}>ID</th>
+            <th className={styles.tableHeaderID}>No.</th>
             <th className={styles.tableHeaderName}>イベント名</th>
-            <th className={styles.tableHeaderURL}>URL</th>
+            <th className={styles.tableHeaderTag}>タグ</th>
             <th className={styles.tableHeaderDate}>参加日</th>
-            <th className={styles.tableHeaderBtns}></th>
+            <th className={styles.tableHeaderBtns}>詳細</th>
           </tr>
         </thead>
         <tbody>
           {(rowsPerPage > 0
               ? state.events.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               : state.events
-            ).map((event, index) => (<Event key={index} event={event} />))}
+            ).map((event, index) => (<Event key={index} event={event} />)
+          )}
         </tbody>
         <tfoot>
-        <TablePagination
-          rowsPerPageOptions={[5]}
-          count={state.events.length}
-          page={page}
-          onChangePage={handleChangePage}
-          rowsPerPage={rowsPerPage}
-        />
+          <tr>
+            <TablePagination
+              rowsPerPageOptions={[5]}
+              count={state.events.length}
+              page={page}
+              onChangePage={handleChangePage}
+              rowsPerPage={rowsPerPage}
+            />
+          </tr>
         </tfoot>
       </table>
   )

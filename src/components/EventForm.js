@@ -69,7 +69,7 @@ const EventForm = () => {
     }
   }
 
-  const disableResister = name === "" || comment === "" || date === "" || tag1 === "";
+  const disableResister = name === "" || comment === "" || date === "" || tag1 === "" || tag2 === "";
 
 
   return (
@@ -89,7 +89,7 @@ const EventForm = () => {
           </div>
           <input type="text" id="titleForm" value={name} onChange={(e) => setName(e.target.value)}
             placeholder="イベント名を入力してください。" className={styles.eventNameInput} />
-          <div>
+          <div className={styles.formContent}>
             <label htmlFor="tagForm">タグ1<span className={styles.requiredMark}>＊</span></label>
           </div>
           <select id="tagForm" value={tag1} onChange={(e) => setTag1(e.target.value)}>
@@ -97,8 +97,8 @@ const EventForm = () => {
             <option value={"#社内"}>#社内</option>
             <option value={"#社外"}>#社外</option>
           </select>
-          <div>
-            <label htmlFor="tagForm">タグ2</label>
+          <div className={styles.formContent}>
+            <label htmlFor="tagForm">タグ2<span className={styles.requiredMark}>＊</span></label>
           </div>
           <select id="tagForm" value={tag2} onChange={(e) => setTag2(e.target.value)}>
             <option value={""}>タグを選択してください</option>

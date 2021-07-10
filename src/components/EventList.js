@@ -10,6 +10,7 @@ const EventList = () => {
   const [rowsPerPage] = useState(5);
 
   const handleChangePage = (e, newPage) => {
+    e.preventDefault();
     setPage(newPage);
   };
 
@@ -28,16 +29,19 @@ const EventList = () => {
           {(rowsPerPage > 0
               ? state.events.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               : state.events
-            ).map((event, index) => (<Event key={index} event={event} />))}
+            ).map((event, index) => (<Event key={index} event={event} />)
+          )}
         </tbody>
         <tfoot>
-        <TablePagination
-          rowsPerPageOptions={[5]}
-          count={state.events.length}
-          page={page}
-          onChangePage={handleChangePage}
-          rowsPerPage={rowsPerPage}
-        />
+          <tr>
+            <TablePagination
+              rowsPerPageOptions={[5]}
+              count={state.events.length}
+              page={page}
+              onChangePage={handleChangePage}
+              rowsPerPage={rowsPerPage}
+            />
+          </tr>
         </tfoot>
       </table>
   )

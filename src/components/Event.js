@@ -8,6 +8,7 @@ import MessageIcon from '@material-ui/icons/Message';
 import EditIcon from '@material-ui/icons/Edit';
 import CloseIcon from '@material-ui/icons/Close';
 import Modal from "@material-ui/core/Modal";
+import Tooltip from '@material-ui/core/Tooltip';
 import styles from "../styles/Event.css";
 
 const JSON_KEYWORD = "events";
@@ -16,7 +17,8 @@ const Event = ({event}) => {
   const {state, dispatch} = useContext(AppContext);
   const id = event.id;
   const [name, setName] = useState(event.name);
-  const [tag, setTag] = useState(event.tag);
+  const [tag1, setTag1] = useState(event.tag1);
+  const [tag2, setTag2] = useState(event.tag2);
   const [comment, setComment] = useState(event.comment);
   const [url, setUrl] = useState(event.url);
   const [date, setDate] = useState(event.date);
@@ -37,11 +39,12 @@ const Event = ({event}) => {
 
   useEffect(() => {
     setName(event.name);
-    setTag(event.tag);
+    setTag1(event.tag1);
+    setTag2(event.tag2);
     setComment(event.comment);
     setUrl(event.url);
     setDate(event.date);
-  }, [event.name, event.tag, event.comment, event.url, event.date]);
+  }, [event.name, event.tag1, event.tag2, event.comment, event.url, event.date]);
 
   // 詳細モーダルの開閉を管理
   const handleOpen = () => {
@@ -66,14 +69,16 @@ const Event = ({event}) => {
       type: EDIT_EVENT,
       id,
       name,
-      tag,
+      tag1,
+      tag2,
       comment,
       url,
       date
     });
 
     setName(event.name);
-    setTag(event.tag);
+    setTag1(event.tag1);
+    setTag2(event.tag2);
     setComment(event.comment);
     setUrl(event.url);
     setDate(event.date);
@@ -89,14 +94,14 @@ const Event = ({event}) => {
       <tr>
         <td className={styles.id}>{event.id}</td>
         <td>{event.name}</td>
-        <td><a href={event.url} target="_blank" rel="noopener noreferrer">{event.url}</a></td>
+        <td className={styles.tags}>
+          <p className={styles.tagArea}>
+            <span className={styles.tag}>{event.tag1}</span><br />
+            <span className={styles.tag}>{event.tag2}</span>
+          </p>
+        </td>
         <td className={styles.date}>{event.date}</td>
         <td className={styles.btns}>
-          <div className={styles.btn}>
-            <Button variant="contained" color="secondary" onClick={handleDeleteEvent}>
-              <DeleteIcon />
-            </Button>
-          </div>
           <div className={styles.btn}>
             <Button variant="contained" color="default" onClick={handleOpen}
               startIcon={<MessageIcon />}>
@@ -109,19 +114,32 @@ const Event = ({event}) => {
               <strong>編集</strong>
             </Button>
           </div>
+          <div className={styles.btn}>
+            <Tooltip title="イベント削除" arrow placement="top">
+              <Button variant="contained" color="secondary" onClick={handleDeleteEvent}>
+                <DeleteIcon />
+              </Button>
+            </Tooltip>
+          </div>
         </td>
       </tr>
       <Modal open={open} onClose={handleClose} aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description">
         <div className={styles.modalBody}>
-          <label>タグ</label>
-          <div className={styles.tag}>
-            {event.tag}
-          </div>
-          <label>コメント</label>
           <div className={styles.comment}>
+            <label>コメント：</label>
+          </div>
+          <div>
             {event.comment}
           </div>
-          <div className={styles.btns}>
+          <div className={styles.url}>
+            <label>URL：</label>
+          </div>
+          <div>
+            <a href={event.url} className={styles.link} target="_blank" rel="noopener noreferrer">
+              {event.url}
+            </a>
+          </div>
+          <div className={styles.btnsInModal}>
               <div className={styles.btnModal}>
                 <Button variant="contained" color="default" onClick={handleClose}
                   startIcon={<CloseIcon />}>
@@ -134,20 +152,27 @@ const Event = ({event}) => {
 
       <Modal open={editable} onClose={handleEditClose} aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description">
         <div className={styles.modalBody}>
-          <h4>イベントID“{event.id}”を編集する</h4>
-          <div>
+          <label>イベントID“{event.id}”を編集する</label>
+          <div className={styles.formContent}>
             <label>イベント名</label>
           </div>
           <div>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} className={styles.eventNameInput} />
           </div>
-          <div>
-            <label>タグ</label>
+          <div className={styles.formContent}>
+            <label>タグ1</label>
           </div>
           <div>
-            <select value={tag} onChange={(e) => setTag(e.target.value)}>
+            <select value={tag1} onChange={(e) => setTag1(e.target.value)}>
               <option value={"#社内"}>#社内</option>
               <option value={"#社外"}>#社外</option>
+            </select>
+          </div>
+          <div className={styles.formContent}>
+            <label>タグ2</label>
+          </div>
+          <div>
+            <select value={tag2} onChange={(e) => setTag2(e.target.value)}>
               <option value={"#オンライン"}>#オンライン</option>
               <option value={"#オフライン"}>#オフライン</option>
             </select>
@@ -169,7 +194,7 @@ const Event = ({event}) => {
           </div>
           <input type="date" id="dateForm" value={date} onChange={(e)=> setDate(e.target.value)} />
           <div>
-            <div className={styles.btns}>
+            <div className={styles.btnsInModal}>
               <div className={styles.btnModal}>
                 <Button variant="contained" color="primary" onClick={handleEditEvent}
                   startIcon={<CheckIcon />}>

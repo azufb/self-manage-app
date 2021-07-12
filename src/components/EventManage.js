@@ -2,6 +2,7 @@ import React from "react";
 import EventForm from "./EventForm";
 import EventList from "./EventList";
 import styles from "../styles/Events.css";
+import EventSearch from "./EventSearch";
 
 const EventManage = () => {
   return (
@@ -12,6 +13,7 @@ const EventManage = () => {
         早速、下のボタンからイベント名と参加したコメント・感想などを登録し、記録を始めていきましょう！
       </p>
       <EventForm />
+      <EventSearch />
       <EventList />
     </div>
   )

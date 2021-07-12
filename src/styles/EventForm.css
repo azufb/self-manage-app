@@ -2,6 +2,34 @@
   width: 100%;
 }
 
+.btnArea {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.btn {
+  margin-bottom: 15px;
+}
+
+.modalBody {
+  position: absolute;
+  top: 3%;
+  margin: 0 auto;
+  left: 10%;
+  right: 10%;
+  width: 80%;
+  background-color: #5befa7;
+  padding: 15px;
+}
+
+.btnModal {
+  margin: 10px 5px;
+}
+
+.btnModal:nth-last-child(1) {
+  margin-right: 0px;
+}
+
 label {
   font-weight: bold;
 }
@@ -18,30 +46,10 @@ label {
   width: 100%;
 }
 
-.btnArea {
-  text-align: center;
-  margin-top: 15px;
-}
-
-.btn {
-  margin-bottom: 15px;
-}
-
 .registerBtn {
   width: 100%;
 }
 
 .requiredMark {
   color: red;
-}
-
-.modalBody {
-  position: absolute;
-  top: 10%;
-  margin: 0 auto;
-  left: 10%;
-  right: 10%;
-  width: 80%;
-  background-color: #5befa7;
-  padding: 15px;
 }

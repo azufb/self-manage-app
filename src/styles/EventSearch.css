@@ -1,5 +1,4 @@
 .formContent {
-  margin-top: 20px;
   margin-bottom: 50px;
 }
 
@@ -7,6 +6,8 @@ table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
+  background-color: #ffff;
+  margin: 0;
 }
 
 .tableHeader {

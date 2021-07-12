@@ -120,14 +120,14 @@ const EventForm = () => {
           </div>
           <input type="date" id="dateForm" value={date} onChange={(e)=> setDate(e.target.value)} />
           <div className={styles.btnArea}>
-            <div className={styles.btn}>
+            <div className={styles.btnModal}>
               <Button onClick={handleAddEvent} variant="contained" size="medium" color="primary"
                 className={styles.registerBtn} disabled={disableResister}
                 startIcon={<AddIcon />}>
                 <strong>登録</strong>
               </Button>
             </div>
-            <div className={styles.btn}>
+            <div className={styles.btnModal}>
               <Button onClick={handleCanceled} variant="contained" size="medium" color="default"
                 className={styles.registerBtn}
                 startIcon={<CloseIcon />}>

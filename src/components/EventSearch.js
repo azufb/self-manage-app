@@ -22,15 +22,15 @@ const EventSearch = () => {
   };
 
   const handleSearch = () => {
-    let regExp = new RegExp(`${searchName}`, "gim");
+    const regExp = new RegExp(`${searchName}`, "g");
   
     setSearchedList(state.events.filter(item => {
       const result = item.name.match(regExp);
       return result;
     }));
-    setOpen(true);
 
     setSearchName("");
+    setOpen(true);
   }
 
   const handleClear = () => {
@@ -87,10 +87,10 @@ const EventSearch = () => {
               ):(
                 <React.Fragment>
                   {(rowsPerPage > 0
-                    ? state.events.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    ? searchedList.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                     : searchedList)
                     .map((searchedItem, index) => (
-                      <React.Fragment>
+                      <React.Fragment key={index}>
                         <tr key={index}>
                           <td className={styles.id}>{searchedItem.id}</td>
                           <td>{searchedItem.name}</td>

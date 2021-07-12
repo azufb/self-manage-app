@@ -2,6 +2,50 @@
   margin-bottom: 50px;
 }
 
+.searchInput {
+  width: 45%;
+}
+
+.btns {
+  display: inline-block;
+}
+
+.searchBtn {
+  margin: 10px 5px;
+}
+
+.searchBtn:nth-child(1) {
+  margin-left: 10px;
+}
+
+.searchBtn:nth-last-child(1) {
+  margin-right: 0px;
+}
+
+.modalBody {
+  position: absolute;
+  top: 10%;
+  margin: 0 auto;
+  left: 10%;
+  right: 10%;
+  width: 80%;
+  background-color: #5befa7;
+  padding: 15px;
+}
+
+.btnsInModal {
+  display: flex;
+  float: right;
+}
+
+.btnModal {
+  margin: 10px 5px;
+}
+
+.btnModal:nth-last-child(1) {
+  margin-right: 0px;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -38,37 +82,6 @@ table {
   width: 10%;
 }
 
-.searchInput {
-  width: 45%;
-}
-
-.btns {
-  display: inline-block;
-}
-
-.searchBtn {
-  margin: 10px 5px;
-}
-
-.searchBtn:nth-child(1) {
-  margin-left: 10px;
-}
-
-.searchBtn:nth-last-child(1) {
-  margin-right: 0px;
-}
-
-.modalBody {
-  position: absolute;
-  top: 10%;
-  margin: 0 auto;
-  left: 10%;
-  right: 10%;
-  width: 80%;
-  background-color: #5befa7;
-  padding: 15px;
-}
-
 .id {
   text-align: center;
 }
@@ -92,14 +105,6 @@ table {
   text-align: center;
 }
 
-.btnModal {
-  margin: 10px 5px;
-}
-
-.btnModal:nth-last-child(1) {
-  margin-right: 0px;
-}
-
 .comment {
   white-space: pre;
   margin-top: 20px;
@@ -112,9 +117,4 @@ table {
 .link {
   color: #3f51b5;
   text-decoration: underline;
-}
-
-.btnsInModal {
-  display: flex;
-  float: right;
 }

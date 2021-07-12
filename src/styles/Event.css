@@ -1,9 +1,9 @@
 .eventNameInput {
-  width: 100%;
+  width: 99%;
 }
 
 .commentInput {
-  width: 100%;
+  width: 99%;
 }
 
 .btns {
@@ -21,7 +21,9 @@
 
 .modalBody {
   position: absolute;
-  left: 40%;
+  left: 10%;
+  right: 10%;
+  margin: 0 auto;
   top: 10%;
   width: 400px;
   background-color: #5befa7;

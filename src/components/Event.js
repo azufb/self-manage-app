@@ -140,13 +140,13 @@ const Event = ({event}) => {
             </a>
           </div>
           <div className={styles.btnsInModal}>
-              <div className={styles.btnModal}>
-                <Button variant="contained" color="default" onClick={handleClose}
-                  startIcon={<CloseIcon />}>
-                  <strong>とじる</strong>
-                </Button>
-              </div>
+            <div className={styles.btnModal}>
+              <Button variant="contained" color="default" onClick={handleClose}
+                startIcon={<CloseIcon />}>
+                <strong>とじる</strong>
+              </Button>
             </div>
+          </div>
         </div>
       </Modal>
 

@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import AppContext from "../contexts/AppContext";
 import Button from '@material-ui/core/Button';
 import SearchIcon from '@material-ui/icons/Search';
+import CloseIcon from '@material-ui/icons/Close';
 import Modal from "@material-ui/core/Modal";
 import TablePagination from '@material-ui/core/TablePagination';
 import styles from "../styles/EventSearch.css";
@@ -81,7 +82,7 @@ const EventSearch = () => {
             <tbody>
               {searchedList.length === 0 ? (
                 <tr>
-                  <td colSpan={5}>表示する検索結果はありません。</td>
+                  <td colSpan={6}>表示する検索結果はありません。</td>
                 </tr>
               ):(
                 <React.Fragment>
@@ -129,6 +130,18 @@ const EventSearch = () => {
                   onChangePage={handleChangePage}
                   rowsPerPage={rowsPerPage}
                 />
+              </tr>
+              <tr>
+                <td colSpan={6}>
+                  <div className={styles.btnsInModal}>
+                    <div className={styles.btnModal}>
+                      <Button variant="contained" color="default" onClick={handleClose}
+                        startIcon={<CloseIcon />}>
+                        <strong>とじる</strong>
+                      </Button>
+                    </div>
+                  </div>
+                </td>
               </tr>
             </tfoot>
           </table>

@@ -1,40 +1,5 @@
 .formContent {
-  margin-top: 20px;
   margin-bottom: 50px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-}
-
-.tableHeader {
-  border-bottom: 1px solid #000;
-}
-
-.tableHeaderID {
-  width: 5%;
-}
-
-.tableHeaderName {
-  width: 50%;
-}
-
-.tableHeaderTag {
-  width: 10%;
-}
-
-.tableHeaderDate {
-  width: 10%;
-}
-
-.tableHeaderComment {
-  width: 10%;
-}
-
-.tableHeaderURL {
-  width: 10%;
 }
 
 .searchInput {
@@ -68,6 +33,55 @@ table {
   padding: 15px;
 }
 
+.btnsInModal {
+  display: flex;
+  float: right;
+}
+
+.btnModal {
+  margin: 10px 5px;
+}
+
+.btnModal:nth-last-child(1) {
+  margin-right: 0px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color: #ffff;
+  margin: 0;
+}
+
+.tableHeader {
+  border-bottom: 1px solid #000;
+}
+
+.tableHeaderID {
+  width: 5%;
+}
+
+.tableHeaderName {
+  width: 50%;
+}
+
+.tableHeaderTag {
+  width: 10%;
+}
+
+.tableHeaderDate {
+  width: 10%;
+}
+
+.tableHeaderComment {
+  width: 10%;
+}
+
+.tableHeaderURL {
+  width: 10%;
+}
+
 .id {
   text-align: center;
 }
@@ -91,14 +105,6 @@ table {
   text-align: center;
 }
 
-.btnModal {
-  margin: 10px 5px;
-}
-
-.btnModal:nth-last-child(1) {
-  margin-right: 0px;
-}
-
 .comment {
   white-space: pre;
   margin-top: 20px;
@@ -111,9 +117,4 @@ table {
 .link {
   color: #3f51b5;
   text-decoration: underline;
-}
-
-.btnsInModal {
-  display: flex;
-  float: right;
 }

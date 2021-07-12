@@ -1,0 +1,120 @@
+.formContent {
+  margin-bottom: 50px;
+}
+
+.searchInput {
+  width: 45%;
+}
+
+.btns {
+  display: inline-block;
+}
+
+.searchBtn {
+  margin: 10px 5px;
+}
+
+.searchBtn:nth-child(1) {
+  margin-left: 10px;
+}
+
+.searchBtn:nth-last-child(1) {
+  margin-right: 0px;
+}
+
+.modalBody {
+  position: absolute;
+  top: 10%;
+  margin: 0 auto;
+  left: 10%;
+  right: 10%;
+  width: 80%;
+  background-color: #5befa7;
+  padding: 15px;
+}
+
+.btnsInModal {
+  display: flex;
+  float: right;
+}
+
+.btnModal {
+  margin: 10px 5px;
+}
+
+.btnModal:nth-last-child(1) {
+  margin-right: 0px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color: #ffff;
+  margin: 0;
+}
+
+.tableHeader {
+  border-bottom: 1px solid #000;
+}
+
+.tableHeaderID {
+  width: 5%;
+}
+
+.tableHeaderName {
+  width: 50%;
+}
+
+.tableHeaderTag {
+  width: 10%;
+}
+
+.tableHeaderDate {
+  width: 10%;
+}
+
+.tableHeaderComment {
+  width: 10%;
+}
+
+.tableHeaderURL {
+  width: 10%;
+}
+
+.id {
+  text-align: center;
+}
+
+.tags {
+  text-align: center;
+}
+
+.tagArea {
+  display: inline-block;
+  text-align: left;
+  margin: 0px;
+}
+
+.tag {
+  color: #3f51b5;
+  font-weight: bold;
+}
+
+.date {
+  text-align: center;
+}
+
+.comment {
+  white-space: pre;
+  margin-top: 20px;
+}
+
+.url {
+  margin-top: 20px;
+}
+
+.link {
+  color: #3f51b5;
+  text-decoration: underline;
+}

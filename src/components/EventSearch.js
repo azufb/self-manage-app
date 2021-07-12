@@ -22,12 +22,11 @@ const EventSearch = () => {
   };
 
   const handleSearch = () => {
-    //const regExp = new RegExp(`${searchName}`, "g");
+    const regExp = new RegExp(`${searchName}`, "g");
   
     setSearchedList(state.events.filter(item => {
-      //const result = item.name.match(regExp);
-      return item.name === searchName;
-      //return result;
+      const result = item.name.match(regExp);
+      return result;
     }));
 
     setSearchName("");

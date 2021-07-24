@@ -8,7 +8,7 @@ import MessageIcon from '@material-ui/icons/Message';
 import EditIcon from '@material-ui/icons/Edit';
 import CloseIcon from '@material-ui/icons/Close';
 import Modal from "@material-ui/core/Modal";
-import Tooltip from '@material-ui/core/Tooltip';
+//import Tooltip from '@material-ui/core/Tooltip';
 import {
   DatePicker,
   MuiPickersUtilsProvider,
@@ -80,16 +80,16 @@ const Event = ({reading}) => {
         <td className={styles.btns}>
           <div className={styles.btn}>
             <Button variant="contained" color="default" onClick={handleOpen}>
-              詳細
+              <DeleteIcon />
             </Button>
           </div>
           <div className={styles.btn}>
-            <Button variant="contained" color="default" onClick={handleEditable}>
+            <Button variant="contained" color="default" onClick={handleEditable} startIcon={<EditIcon />}>
               編集
             </Button>
           </div>
           <div className={styles.btn}>
-            <Button variant="contained" color="secondary" onClick={handleDelete}>
+            <Button variant="contained" color="secondary" onClick={handleDelete} startIcon={<MessageIcon />}>
               削除
             </Button>
           </div>

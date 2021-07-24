@@ -8,7 +8,7 @@ import MessageIcon from '@material-ui/icons/Message';
 import EditIcon from '@material-ui/icons/Edit';
 import CloseIcon from '@material-ui/icons/Close';
 import Modal from "@material-ui/core/Modal";
-//import Tooltip from '@material-ui/core/Tooltip';
+import Tooltip from '@material-ui/core/Tooltip';
 import {
   DatePicker,
   MuiPickersUtilsProvider,
@@ -79,19 +79,21 @@ const Event = ({reading}) => {
         <td className={styles.date}>{reading.selectedDate}</td>
         <td className={styles.btns}>
           <div className={styles.btn}>
-            <Button variant="contained" color="default" onClick={handleOpen}>
-              <DeleteIcon />
+            <Button variant="contained" color="default" onClick={handleOpen} startIcon={<MessageIcon />}>
+              <strong>詳細</strong>
             </Button>
           </div>
           <div className={styles.btn}>
             <Button variant="contained" color="default" onClick={handleEditable} startIcon={<EditIcon />}>
-              編集
+              <strong>編集</strong>
             </Button>
           </div>
           <div className={styles.btn}>
-            <Button variant="contained" color="secondary" onClick={handleDelete} startIcon={<MessageIcon />}>
-              削除
-            </Button>
+            <Tooltip title="本を削除" arrow placement="top">
+              <Button variant="contained" color="secondary" onClick={handleDelete}>
+                <DeleteIcon />
+              </Button>
+            </Tooltip>
           </div>
         </td>
       </tr>
@@ -102,6 +104,14 @@ const Event = ({reading}) => {
           </div>
           <div>
             {reading.comment}
+          </div>
+          <div className={styles.btnsInModal}>
+            <div className={styles.btnModal}>
+              <Button variant="contained" color="default" onClick={handleClose}
+                startIcon={<CloseIcon />}>
+                <strong>とじる</strong>
+              </Button>
+            </div>
           </div>
         </div>
       </Modal>

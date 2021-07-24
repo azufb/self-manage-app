@@ -11,7 +11,8 @@ const events = (state = [], action) => {
 
     // イベントを削除する
     case DELETE_EVENT:
-      return state.filter(event => event.id !== action.id)
+      const afterDelete = state.filter(event => event.id !== action.id);
+      return afterDelete;
     
     // イベントを編集する
     case EDIT_EVENT:

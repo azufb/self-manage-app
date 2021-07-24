@@ -20,9 +20,9 @@ const ReadingList = () => {
           <tr className={styles.tableHeader}>
             <th className={styles.tableHeaderID}>No.</th>
             <th className={styles.tableHeaderName}>タイトル</th>
-            {/*<th className={styles.tableHeaderTag}>タグ</th>*/}
+            <th className={styles.tableHeaderTag}>著者</th>
             <th className={styles.tableHeaderDate}>読んだ日</th>
-            {/*<th className={styles.tableHeaderBtns}>詳細</th>*/}
+            <th className={styles.tableHeaderBtns}>詳細</th>
           </tr>
         </thead>
         <tbody>

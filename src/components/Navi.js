@@ -7,8 +7,10 @@ import {
 } from "react-router-dom";
 import Home from "./Home";
 import EventManage from "./EventManage";
+import ReadingRecord from './ReadingRecord';
 import HomeIcon from '@material-ui/icons/Home';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
+import BookIcon from '@material-ui/icons/Book';
 import styles from "../styles/Navi.css";
 
 const Navi = () => {
@@ -19,7 +21,7 @@ const Navi = () => {
           <div className={styles.side}>
             <div className={styles.navi}>
               <NavLink exact to="/" activeClassName={styles.activeNavi}>
-                <span className={styles.naviTitle}><HomeIcon /><span>Events Recorder</span></span>
+                <span className={styles.naviTitle}><HomeIcon /><span>RecMe！</span></span>
               </NavLink>
             </div>
             <div className={styles.navi}>
@@ -27,11 +29,19 @@ const Navi = () => {
                 <span className={styles.naviTitle}><EventAvailableIcon /><span>Events</span></span>
               </NavLink>
             </div>
+            <div className={styles.navi}>
+              <NavLink to="/Readings" activeClassName={styles.activeNavi}>
+                <span className={styles.naviTitle}><BookIcon /><span>Readings</span></span>
+              </NavLink>
+            </div>
             <footer>&copy;2021 Azusa.</footer>
           </div>
           <Switch>
             <Route path="/Events">
               <EventManage />
+            </Route>
+            <Route path="/Readings">
+              <ReadingRecord />
             </Route>
             <Route path="/">
               <Home />

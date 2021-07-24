@@ -8,7 +8,8 @@ const JSON_KEYWORD = "events";
 const App = () => {
   const appState = localStorage.getItem(JSON_KEYWORD); // 何もなければ、nullが返ってくる。
   const initialState = appState ? JSON.parse(appState) : {
-    events: []
+    events: [], 
+    readings: []
   }
 
   const [state, dispatch] = useReducer(reducer, initialState);

@@ -4,11 +4,11 @@ import styles from "../styles/Home.css";
 const Home = () => {
   return (
     <div className={styles.contents}>
-      <h1>Events Recorder</h1>
+      <h1>RecMe！</h1>
       <p>
-        参加したイベントを記録することができます！<br />
-        「参加した」という事実だけでなく、コメント・感想などを残すこともできます。参加したイベントで、学んだことなどを記録してみてください！<br></br>
-        <span className={styles.annotation}>※そのほかの管理機能も開発中となっております。お待ちください！</span>
+        RecMe！では、参加したイベントや、読んだ本を記録することができます！<br />
+        イベント名や日付、本のタイトルや著者名だけでなく、コメントや感想などを一緒に記録することが可能です。<br />
+        振り返りも兼ねて、記録を始めてみませんか？？
       </p>
     </div>
   )

@@ -1,4 +1,9 @@
 import React, { useState, useContext } from "react";
+import {
+  DatePicker,
+  MuiPickersUtilsProvider,
+} from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 import { ADD_EVENT } from "../actions";
 import AppContext from "../contexts/AppContext";
 import Button from '@material-ui/core/Button';
@@ -15,7 +20,7 @@ const EventForm = () => {
   const [tag2, setTag2] = useState("");
   const [comment, setComment] = useState("");
   const [url, setUrl] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
 
   const handleAddEvent = (e) => {
@@ -38,7 +43,7 @@ const EventForm = () => {
     setTag2("");
     setComment("");
     setUrl("");
-    setDate("");
+    setDate(new Date());
 
     setOpen(false);
   }
@@ -62,7 +67,7 @@ const EventForm = () => {
       setTag2("");
       setComment("");
       setUrl("");
-      setDate("");
+      setDate(new Date());
 
       // モーダルとじる
       setOpen(false);
@@ -118,7 +123,10 @@ const EventForm = () => {
           <div className={styles.formContent}>
             <label htmlFor="dateForm">参加日<span className={styles.requiredMark}>＊</span></label>
           </div>
-          <input type="date" id="dateForm" value={date} onChange={(e)=> setDate(e.target.value)} />
+          {/*<input type="date" id="dateForm" value={date} onChange={(e)=> setDate(e.target.value)} />*/}
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <DatePicker value={date} onChange={setDate} />
+          </MuiPickersUtilsProvider>
           <div className={styles.btnArea}>
             <div className={styles.btnModal}>
               <Button onClick={handleAddEvent} variant="contained" size="medium" color="primary"

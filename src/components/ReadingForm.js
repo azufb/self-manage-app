@@ -40,20 +40,30 @@ const ReadingForm = () => {
       comment
     });
 
+    window.alert(`「${title}」という本を登録しました。`);
+
     setTitle("");
     setAuthor("");
     handleDateChange(new Date());
     setComment("");
+
     setOpen(false);
   }
 
   const handleCancel = () => {
-    setTitle("");
-    setAuthor("");
-    handleDateChange(new Date());
-    setComment("");
-    setOpen(false);
+    const confirmMessage = window.confirm("入力途中の情報は保存できません。\r\nイベントの登録をキャンセルしますか？");
+
+    if (confirmMessage) {
+      setTitle("");
+      setAuthor("");
+      handleDateChange(new Date());
+      setComment("");
+
+      setOpen(false);
+    }
   }
+
+  const disableResister = title === "" || comment === "" || selectedDate === "" || author === "";
 
   return (
     <div>
@@ -66,29 +76,29 @@ const ReadingForm = () => {
       <Modal open={open} onClose={handleClose} aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description">
         <form className={styles.modalBody}>
           <div>
-            <label htmlFor="titleForm">タイトル</label>
+            <label htmlFor="titleForm">タイトル<span className={styles.requiredMark}>＊</span></label>
           </div>
           <input type="text" id="titleForm" value={title} onChange={(e) => setTitle(e.target.value)}
             placeholder="タイトルを入力してください。" className={styles.eventNameInput} />
           <div className={styles.formContent}>
-            <label htmlFor="authorForm">著者</label>
+            <label htmlFor="authorForm">著者<span className={styles.requiredMark}>＊</span></label>
           </div>
           <input type="text" id="authorForm" value={author} onChange={(e) => setAuthor(e.target.value)}
             placeholder="著者名を入力してください。" className={styles.eventNameInput} />
           <div className={styles.formContent}>
-            <label htmlFor="dateForm">読んだ日</label>
+            <label htmlFor="dateForm">読んだ日<span className={styles.requiredMark}>＊</span></label>
           </div>
           <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <DatePicker value={selectedDate} onChange={handleDateChange} />
           </MuiPickersUtilsProvider>
           <div className={styles.formContent}>
-            <label htmlFor="commentForm">感想</label>
+            <label htmlFor="commentForm">感想<span className={styles.requiredMark}>＊</span></label>
           </div>
           <textarea id="commentForm" value={comment} onChange={(e) => setComment(e.target.value)}
             placeholder="感想を入力してください。" className={styles.commentInput} rows="10" />
           <div className={styles.btnModal}>
             <Button variant="contained" color="primary" onClick={handleAdd}
-              className={styles.registerBtn}
+              className={styles.registerBtn} disabled={disableResister}
               startIcon={<AddIcon />}>
               <strong>登録</strong>
             </Button>

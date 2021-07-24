@@ -10,6 +10,7 @@ import EventManage from "./EventManage";
 import ReadingRecord from './ReadingRecord';
 import HomeIcon from '@material-ui/icons/Home';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
+import BookIcon from '@material-ui/icons/Book';
 import styles from "../styles/Navi.css";
 
 const Navi = () => {
@@ -30,7 +31,7 @@ const Navi = () => {
             </div>
             <div className={styles.navi}>
               <NavLink to="/Readings" activeClassName={styles.activeNavi}>
-                <span className={styles.naviTitle}><EventAvailableIcon /><span>Readings</span></span>
+                <span className={styles.naviTitle}><BookIcon /><span>Readings</span></span>
               </NavLink>
             </div>
             <footer>&copy;2021 Azusa.</footer>

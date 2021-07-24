@@ -1,18 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import AppContext from "../contexts/AppContext";
 import Reading from "./Reading";
 import styles from "../styles/EventList.css";
-//import TablePagination from '@material-ui/core/TablePagination';
+import TablePagination from '@material-ui/core/TablePagination';
 
 const ReadingList = () => {
   const { state } = useContext(AppContext);
-  //const [page, setPage] = useState(0);
-  //const [rowsPerPage] = useState(5);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage] = useState(5);
 
-  /*const handleChangePage = (e, newPage) => {
+  const handleChangePage = (e, newPage) => {
     e.preventDefault();
     setPage(newPage);
-  };*/
+  };
 
   return (
       <table>
@@ -26,16 +26,13 @@ const ReadingList = () => {
           </tr>
         </thead>
         <tbody>
-          {
-            state.readings.map((reading, index) => (<Reading key={index} reading={reading} />))
-          }
-          {/*(rowsPerPage > 0
+          {(rowsPerPage > 0
               ? state.readings.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               : state.readings
             ).map((reading, index) => (<Reading key={index} reading={reading} />)
-          )*/}
+          )}
         </tbody>
-        {/*<tfoot>
+        <tfoot>
           <tr>
             <TablePagination
               rowsPerPageOptions={[5]}
@@ -45,7 +42,7 @@ const ReadingList = () => {
               rowsPerPage={rowsPerPage}
             />
           </tr>
-        </tfoot>*/}
+        </tfoot>
       </table>
   )
 }

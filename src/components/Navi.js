@@ -21,7 +21,7 @@ const Navi = () => {
           <div className={styles.side}>
             <div className={styles.navi}>
               <NavLink exact to="/" activeClassName={styles.activeNavi}>
-                <span className={styles.naviTitle}><HomeIcon /><span>Events Recorder</span></span>
+                <span className={styles.naviTitle}><HomeIcon /><span>RecMe！</span></span>
               </NavLink>
             </div>
             <div className={styles.navi}>

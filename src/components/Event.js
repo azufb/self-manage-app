@@ -1,4 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
+import {
+  DatePicker,
+  MuiPickersUtilsProvider,
+} from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 import { DELETE_EVENT, EDIT_EVENT } from "../actions";
 import AppContext from "../contexts/AppContext";
 import Button from '@material-ui/core/Button';
@@ -192,7 +197,10 @@ const Event = ({event}) => {
           <div className={styles.formContent}>
             <label>参加日</label>
           </div>
-          <input type="date" id="dateForm" value={date} onChange={(e)=> setDate(e.target.value)} />
+          {/*<input type="date" id="dateForm" value={date} onChange={(e)=> setDate(e.target.value)} />*/}
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <DatePicker value={date} onChange={setDate} />
+          </MuiPickersUtilsProvider>
           <div>
             <div className={styles.btnsInModal}>
               <div className={styles.btnModal}>

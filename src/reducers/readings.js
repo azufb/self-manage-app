@@ -15,10 +15,10 @@ const readings = (state = [], action) => {
     case EDIT_READING:
       state.map((reading) => {
         if (reading.id === action.id) {
-          reading.title = action.title,
-          reading.author = action.author,
-          reading.selectedDate = action.selectedDate.toLocaleDateString(),
-          reading.comment = action.comment
+          reading.title = action.title;
+          reading.author = action.author;
+          reading.selectedDate = action.selectedDate.toLocaleDateString();
+          reading.comment = action.comment;
         }
         return reading;
       });

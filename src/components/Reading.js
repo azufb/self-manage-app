@@ -29,10 +29,15 @@ const Event = ({reading}) => {
   const [editable, setEditable] = useState(false);
 
   const handleDelete = () => {
-    dispatch({
-      type: DELETE_READING,
-      id
-    });
+    const confirmMessage = window.confirm("削除した本を復元することはできません。\r\n本を削除してもよいですか？");
+    if (confirmMessage) {
+      dispatch({
+        type: DELETE_READING,
+        id
+      });
+    }
+
+    window.alert("本を削除しました。");
   }
 
   const handleOpen = () => {
@@ -66,6 +71,8 @@ const Event = ({reading}) => {
     setComment(reading.comment);
     handleDateChange(reading.selectedDate);
 
+    window.alert("変更が適用されました。");
+    
     localStorage.setItem(JSON_KEYWORD, JSON.stringify(state));
     setEditable(false);
   }

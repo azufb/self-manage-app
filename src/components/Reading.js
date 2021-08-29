@@ -106,10 +106,10 @@ const Event = ({reading}) => {
       </tr>
       <Modal open={open} onClose={handleClose} aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description">
         <div className={styles.modalBody}>
-          <div className={styles.comment}>
+          <div>
             <label>感想：</label>
           </div>
-          <div>
+          <div className={styles.comment}>
             {reading.comment}
           </div>
           <div className={styles.btnsInModal}>

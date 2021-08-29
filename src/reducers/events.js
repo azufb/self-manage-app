@@ -23,7 +23,11 @@ const events = (state = [], action) => {
           event.tag2 = action.tag2;
           event.comment = action.comment;
           event.url = action.url;
-          event.date = action.date.toLocaleDateString();
+          if (event.date !== action.date) {
+            event.date = action.date.toLocaleDateString();
+          } else {
+            event.date = action.date;
+          }
         }
         return event;
       });

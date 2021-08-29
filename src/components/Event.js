@@ -130,10 +130,10 @@ const Event = ({event}) => {
       </tr>
       <Modal open={open} onClose={handleClose} aria-labelledby="simple-modal-title" aria-describedby="simple-modal-description">
         <div className={styles.modalBody}>
-          <div className={styles.comment}>
+          <div>
             <label>コメント：</label>
           </div>
-          <div>
+          <div className={styles.comment}>
             {event.comment}
           </div>
           <div className={styles.url}>
